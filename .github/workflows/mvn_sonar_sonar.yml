@@ -21,9 +21,10 @@ jobs:
         with:
           java-version: '11.0.6'
 
+      #- name: mvn --batch-mode
+      # run: mvn --batch-mode --update-snapshots verify
       - name: mvn sonar:sonar
-        run: mvn --batch-mode --update-snapshots verify
-      #  run: mvn sonar:sonar \
-      #    -Dsonar.projectKey=test01-sonarqube-project_katou \
-      #    -Dsonar.host.url=http://35.243.119.246:9000 \
-      #    -Dsonar.login=88a43a6cd0c737f3d99ed2df3fa30cc3f9de9eda
+        run: mvn sonar:sonar \
+          -Dsonar.projectKey=test01-sonarqube-project_katou \
+          -Dsonar.host.url=http://35.243.119.246:9000 \
+          -Dsonar.login=88a43a6cd0c737f3d99ed2df3fa30cc3f9de9eda

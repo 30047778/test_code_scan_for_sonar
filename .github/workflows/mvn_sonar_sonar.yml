@@ -1,0 +1,23 @@
+name: mvn_sonar_sonar
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      # Use an existing action, you can look in the market place to find what you need and how to use it, to setup the sonar scanner
+      - name: Setup sonar scanner
+        uses: warchant/setup-sonar-scanner@v3
+
+      - name: mvn sonar:sonar
+        run: mvn sonar:sonar \
+          -Dsonar.projectKey=test01-sonarqube-project_katou \
+          -Dsonar.host.url=http://35.243.119.246:9000 \
+          -Dsonar.login=88a43a6cd0c737f3d99ed2df3fa30cc3f9de9eda

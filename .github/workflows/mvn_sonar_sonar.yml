@@ -13,8 +13,13 @@ jobs:
 
     steps:
       # Use an existing action, you can look in the market place to find what you need and how to use it, to setup the sonar scanner
-      - name: Setup sonar scanner
-        uses: warchant/setup-sonar-scanner@v3
+      #- name: Setup sonar scanner
+      #  uses: warchant/setup-sonar-scanner@v3
+      - uses: actions/checkout@v2
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: '11.0.6'
 
       - name: mvn sonar:sonar
         run: mvn --batch-mode --update-snapshots verify
